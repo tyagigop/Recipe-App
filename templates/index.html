@@ -1,0 +1,64 @@
+{% extends "base.html"%}
+{% block start %}
+
+    
+
+<form class="container-md mb-6 p-3 my-3 bg-light col-6 card" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <h2 class="text-center">Recipes Details</h2>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Recipe Name</label>
+      <input type="text" name="r_name" class="form-control"  required ="exampleInputEmail1" aria-describedby="emailHelp">
+      
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Recipe Description</label>
+      <textarea class="form-control" required  name="r_desc"></textarea>
+    </div>
+    <label for="exampleInputEmail1" class="form-label">Recipe Image</label>
+      <input type="file" name="r_image" class="form-control">
+    
+    <button type="submit" class="btn btn-success">Add Recipe</button>
+  </form>
+
+  <hr>
+    <form class="container-md text-center col-6 mt-5 mb-5">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label ">Search Recipe Name</label>
+            <input name="search" type="text" class="form-control" placeholder="Type search keyword.......">
+            <button type="submit" class="btn btn-outline-info">Search</button>
+          </div>
+
+
+    </form>
+
+    <table class="table container-md table-success">
+        <thead>
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Recipe Name</th>
+            <th scope="col">Recipe Description</th>
+            <th scope="col">Recipe Image</th>
+            <th scope="col">Delete</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            {% for recepie in home%}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{recepie.r_name}}</td>
+            <td>{{recepie.r_desc}}</td>
+            <td>
+                <img src="media/{{recepie.r_image}}" style="height: 100px;">
+            </td>
+            <td>
+                <a href="/delete-rec/{{recepie.id}}" type="submit" class="btn btn-danger">Delete</a>
+                <a href="/update-rec/{{recepie.id}}" type="submit" class="btn btn-success">Update</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    {% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html"%}
+{% block start %}
+
+    
+
+<form class="container-md p-3 my-3 bg-primary col-6 card " method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <h2 class="text-center">Update Recipe</h2>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Recipe Name</label>
+      <input type="text" name="r_name" class="form-control" value="{{update.r_name}}" required ="exampleInputEmail1" aria-describedby="emailHelp">
+      
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Recipe Description</label>
+      <textarea class="form-control" required name="r_desc">{{update.r_desc}}</textarea>
+    </div>
+    <label for="exampleInputEmail1" class="form-label">Recipe Image</label>
+      <input type="file" name="r_image" class="form-control">
+    
+    <button type="submit" class="btn btn-success">Update</button>
+  </form>
+    
+    
+   
+
+    {% endblock %}
