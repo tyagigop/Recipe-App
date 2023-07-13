@@ -1,0 +1,22 @@
+{% extends "base.html"%}
+{% block start %}
+
+    
+
+<form class="container-md mb-6 p-3 my-3 bg-light col-6 card" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <h2 class="text-center">Login</h2>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input type="text" name="r_name" class="form-control"  required ="exampleInputEmail1" aria-describedby="emailHelp">
+      
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" name="r_name" class="form-control"  required ="exampleInputEmail1" aria-describedby="emailHelp">    </div>
+    
+      <p>Don't Have an Account <a href="/register">Register</a></p>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+
+    {% endblock %}
