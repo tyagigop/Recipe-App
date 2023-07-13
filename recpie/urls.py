@@ -8,16 +8,14 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
-    path('home/',home,name='home'),
+    path('',home,name='home'),
     path('delete-rec/<id>/', delete_rec,name='delete_rec'),
     path('update-rec/<id>/', update_rec,name='update_rec'),
     path('login/',login_page,name='login_page'),
     path('register/',register,name='register'),
     path('logout/',logout_page,name='logout_page'),
-
-
     path("admin/", admin.site.urls),
-    
+
 ]
 
 if settings.DEBUG:

@@ -79,13 +79,13 @@ def login_page(request):
             
         else:
             login(request, user)
-            return redirect('/home')
+            return redirect('/')
 
 
     return render(request,"login.html")
 def logout_page(request):
-     logout(request)
-     return redirect('/login')
+    logout(request)
+    return redirect('/login')
 
 def register(request):
     if request.method=='POST':

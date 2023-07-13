@@ -1,7 +1,10 @@
 {% extends "base.html"%}
 {% block start %}
 
-    
+
+
+
+
 
 <form class="container-md p-3 my-3 bg-primary col-6 card " method="post" enctype="multipart/form-data">
     {%csrf_token%}
@@ -20,8 +23,6 @@
     
     <button type="submit" class="btn btn-success">Update</button>
   </form>
-    
-    
-   
 
-    {% endblock %}
+
+{% endblock %}
